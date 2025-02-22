@@ -5,7 +5,7 @@ import { RadioProvider } from "@/contexts/FavoriteRadioContext";
 import { useState } from "react";
 
 const HomePage = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <RadioProvider>
       <div className="flex h-full">
