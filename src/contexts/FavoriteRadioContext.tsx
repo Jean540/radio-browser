@@ -1,5 +1,13 @@
-import { ActionDispatch, createContext, ReactNode, useReducer } from "react";
+import {
+  ActionDispatch,
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+} from "react";
 import { Radio } from "@/types/Radio";
+
+const STORAGE_KEY = "radioContextContent";
 
 type AddRadio = {
   type: "ADD_RADIO";
@@ -58,7 +66,17 @@ type RadioContextType = {
 export const RadioContext = createContext<null | RadioContextType>(null);
 
 export const RadioProvider = ({ children }: { children: ReactNode }) => {
-  const [radios, dispatch] = useReducer(radioReducer, []);
+  const storedRadio =
+    typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+  const parsedRadio: Radio[] = storedRadio ? JSON.parse(storedRadio) : [];
+
+  const [radios, dispatch] = useReducer(radioReducer, parsedRadio);
+
+  useEffect(() => {
+    //Fazendo localStorage das musicas favoritadas
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(radios));
+  }, [radios]);
+
   return (
     <RadioContext.Provider value={{ radios, dispatch }}>
       {children}
