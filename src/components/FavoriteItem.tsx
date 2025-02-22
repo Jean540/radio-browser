@@ -30,15 +30,17 @@ export const FavoriteItem = ({
   }, [playedRadio, radio]);
 
   const handleChangePlayStatus = () => {
-    if (radio && playedRadio === radio) {
-      audioRef.current?.pause();
-      setPlayedRadio(null);
-    } else if (radio) {
-      if (playedRadio) {
+    if (!header) {
+      if (radio && playedRadio === radio) {
+        audioRef.current?.pause();
         setPlayedRadio(null);
+      } else if (radio) {
+        if (playedRadio) {
+          setPlayedRadio(null);
+        }
+        audioRef.current?.play();
+        setPlayedRadio(radio);
       }
-      audioRef.current?.play();
-      setPlayedRadio(radio);
     }
   };
 
@@ -70,8 +72,11 @@ export const FavoriteItem = ({
       style={{ background: header ? "#4D4D56" : "#62626c" }}
     >
       <div
-        className="size-[48px] rounded-full flex justify-center items-center cursor-pointer"
-        style={{ background: header ? "transparent" : "#2F2F33" }}
+        className="size-[48px] rounded-full flex justify-center items-center "
+        style={{
+          background: header ? "transparent" : "#2F2F33",
+          cursor: header ? "initial" : "pointer",
+        }}
         onClick={handleChangePlayStatus}
       >
         {playedRadio && playedRadio === radio ? (
