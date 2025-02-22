@@ -2,6 +2,9 @@
 
 Radio Browser é um projeto de rádio online que permite aos usuários ouvir estações de rádio de todo o mundo.
 
+## Link do Projeto Publicado
+[Vercel](https://jean-radio-browser.vercel.app)
+
 ## Funcionalidades
 
 - Pesquisa de estações de rádio pelp nome.
