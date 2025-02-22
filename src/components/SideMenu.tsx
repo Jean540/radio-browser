@@ -41,7 +41,7 @@ export const SideMenu = ({ setShowMenu, showMenu }: Props) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       setSearched(inputValue);
-    }, 2000);
+    }, 1000);
   };
 
   useEffect(() => {
