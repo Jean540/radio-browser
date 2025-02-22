@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <RadioProvider>
       <div className="flex h-full">
-        {showMenu && <SideMenu setShowMenu={() => setShowMenu(false)} />}
+        <SideMenu showMenu={showMenu} setShowMenu={() => setShowMenu(false)} />
         <FavoritesArea setShowMenu={() => setShowMenu(true)} />
       </div>
     </RadioProvider>
