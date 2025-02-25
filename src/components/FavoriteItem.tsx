@@ -72,7 +72,7 @@ export const FavoriteItem = ({
       style={{ background: header ? "#4D4D56" : "#62626c" }}
     >
       <div
-        className="size-[48px] rounded-full flex justify-center items-center "
+        className="size-[48px] min-h-[48px] min-w-[48px] rounded-full flex justify-center items-center "
         style={{
           background: header ? "transparent" : "#2F2F33",
           cursor: header ? "initial" : "pointer",
@@ -88,8 +88,8 @@ export const FavoriteItem = ({
       <audio ref={audioRef}>
         {radio && <source src={radio.url} type="audio/mp3" />}
       </audio>
-      <div>
-        <p className="text-[24px] font-bold text-black">
+      <div className="truncate">
+        <p className="text-[24px] font-bold text-black truncate">
           {radio ? radio.name : "NOME DA RÁDIO ATUAL"}
         </p>
         {radio && !header && (

@@ -14,7 +14,7 @@ export const FavoritesArea = ({ setShowMenu }: Props) => {
   const [playedRadio, setPlayedRadio] = useState<null | Radio>(null);
 
   return (
-    <div className="bg-[#2F2F33] flex flex-1 flex-col items-center p-7 max-[640px]:p-3 ">
+    <div className="bg-[#2F2F33] flex flex-1 flex-col items-center p-7 max-[640px]:p-3 truncate">
       <div className="grid grid-cols-2 max-[640px]:grid-cols-1 w-full">
         <h1 className="font-bold text-[28px] col-span-2 text-center  max-[640px]:leading-[20px] max-[640px]:mb-[40px]">
           Radio Browser
