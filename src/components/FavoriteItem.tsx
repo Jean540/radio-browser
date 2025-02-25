@@ -89,7 +89,7 @@ export const FavoriteItem = ({
         {radio && <source src={radio.url} type="audio/mp3" />}
       </audio>
       <div className="truncate">
-        <p className="text-[24px] font-bold text-black truncate">
+        <p className="text-[24px]  max-[394px]:text-[20px] font-bold text-black truncate">
           {radio ? radio.name : "NOME DA RÁDIO ATUAL"}
         </p>
         {radio && !header && (
